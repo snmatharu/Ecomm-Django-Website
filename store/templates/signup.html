@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block cards %}
+
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded pt-3">
+            <h3 class="alert alert-light border rounded">Sign Up</h3>
+            <form action="/signup" method="POST">
+                {% csrf_token %}
+                <!-- error -->
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                  <h4 class="alert-heading"></h4>
+                  <p>{{error}}</p>
+                  <p class="mb-0"></p>
+                </div>
+                {% endif %}
+
+                <!-- firstname -->
+                <div class="form-group">
+                  <label for="">First Name</label>
+                  <input value="{{values.first_name}}" type="text" name="firstname" id="" class="form-control form-control-sm " placeholder="Danny" aria-describedby="helpId">
+                </div>
+                <!-- lastname -->
+                <div class="form-group">
+                    <label for="">Last Name</label>
+                    <input value="{{values.last_name}}"  type="text" name="lastname" id="" class="form-control form-control-sm" placeholder="Vonto" aria-describedby="helpId">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Phone No.</label>
+                    <input value="{{values.phone}}" type="text" name="phone" id="" class="form-control form-control-sm" placeholder="9499******" aria-describedby="helpId">
+                  </div>
+                  <!-- email -->
+                  <div class="form-group">
+                    <label for="">Email</label>
+                    <input value="{{values.email}}" type="text" name="email" id="" class="form-control form-control-sm" placeholder="example@gmail.com" aria-describedby="helpId">
+                  </div>
+                  <!-- password --> 
+                  <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="text" name="password" id="" class="form-control form-control-sm" placeholder="Jamp****" aria-describedby="helpId">
+                  </div>
+                  <!-- button -->
+                  <div class="form-group">
+                      <input class="btn btn-sm btn-info" type="submit" value="Signup">
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
